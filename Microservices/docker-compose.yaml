@@ -1,0 +1,19 @@
+version: '3.7'
+services: 
+    dcservice:
+        container_name: DC
+        build: 
+            context: ./DC
+            dockerfile: dockerfile
+        ports: 
+          - "7001:7001"
+    marvelservice:
+        container_name: Marvel
+        build: 
+            context: ./Marvel
+            dockerfile: dockerfile
+        ports: 
+          - "7002:7002"
+networks: 
+  default:
+    name: kong-comic-net
